@@ -2,6 +2,8 @@ from threading import Thread
 import time
 
 
+global_sum = 0
+
 class ThreadManager(Thread):
 
     def __init__(self, *args, **kwargs):
@@ -20,7 +22,9 @@ class ThreadManager(Thread):
         self.start()
 
     def run(self) -> None:
+        global global_sum
         print('{} thread fall asleep for {} seconds'.format(self.name, self.seconds))
         time.sleep(self.seconds)
-        print('{} thread finished'.format(self.name))
+        global_sum += self.seconds
+        print('{} thread finished. global sum is {}'.format(self.name, global_sum))
 
