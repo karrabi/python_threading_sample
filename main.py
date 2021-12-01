@@ -10,7 +10,6 @@ threadlist = {
 }
 
 
-
 def main():
     
     for name, seconds in threadlist.items():
