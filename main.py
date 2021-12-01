@@ -10,11 +10,9 @@ threadlist = {
 }
 
 
-
 def main():
-    for name, seconds in threadlist.items():
-        # print('name: {} and seconds is {}'.format(name, seconds))
-        thread = tm.ThreadManager(name=name, seconds=seconds)
+
+    threads = [tm.ThreadManager(name=name, seconds=seconds) for name, seconds in threadlist.items()]
 
 
 if __name__ == '__main__':
